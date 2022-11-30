@@ -12,7 +12,7 @@ const fontSizes = {
 const colors = {
   background: {
     light: "#0A042E",
-    default: "070320",
+    default: "#070320",
     dark: "#030111",
   },
   main: {
@@ -45,9 +45,8 @@ const colors = {
   },
 };
 
-const theme = {
+export const theme = {
   fontSizes,
   colors,
 };
-
-export default theme;
+export type Theme = typeof theme;
