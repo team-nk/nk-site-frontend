@@ -3,7 +3,7 @@ import CountBox from "../objects/countbox";
 
 function Count() {
   return (
-    <TotalWrapper>
+    <TotalWrapper id="page-3">
       <ContentWrapper>
         <Title>
           마음껏 재능을 펼치는 자신감과
@@ -23,6 +23,9 @@ function Count() {
 export default Count;
 
 const TotalWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+  scroll-snap-align: center;
   width: 100%;
   height: 1000px;
   display: flex;

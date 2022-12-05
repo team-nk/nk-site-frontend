@@ -12,6 +12,12 @@ export const GlobalStyle = createGlobalStyle`
         -ms-user-select:none;
         user-select:none;
         font-family:"Pretendard";
+        scroll-behavior: smooth;
+    }    
+    html{
+        overflow:hidden;
+        overflow-y:scroll;
+        scroll-snap-type:y mandatory;
+        scroll-snap-stop: always;
     }
-    
 `;

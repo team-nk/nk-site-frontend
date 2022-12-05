@@ -3,7 +3,7 @@ import MoreButton from "../objects/morebutton";
 
 function More() {
   return (
-    <TotalWrapper>
+    <TotalWrapper id="page-5">
       <ContentWrapper>
         <h1>NK 더 알아보기</h1>
         <div id="button-wrapper">
@@ -19,6 +19,9 @@ function More() {
 export default More;
 
 const TotalWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+  scroll-snap-align: end;
   width: 100%;
   height: 1000px;
   display: flex;
@@ -27,6 +30,7 @@ const TotalWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
+  padding-bottom: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;

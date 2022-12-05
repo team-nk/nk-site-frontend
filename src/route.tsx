@@ -8,6 +8,7 @@ import Count from "./components/main/count";
 import Apply from "./components/main/apply";
 import More from "./components/main/more";
 import Footer from "./components/footer";
+import MainPage from "./components/main";
 
 function MainRouter() {
   return (
@@ -15,22 +16,19 @@ function MainRouter() {
       <BrowserRouter>
         <Wrapper>
           <Header />
+          <Background />
           <Routes>
             <Route
               path="/"
               element={
-                <Background>
-                  <TitleKR />
-                  <TitleEN />
-                  <Count />
-                  <Apply />
-                  <More />
-                </Background>
+                <>
+                  <MainPage />
+                </>
               }
             />
           </Routes>
-          <Footer />
         </Wrapper>
+        <Footer />
       </BrowserRouter>
     </>
   );

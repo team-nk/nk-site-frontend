@@ -1,11 +1,10 @@
 import { ReactNode, useEffect } from "react";
 import styled from "styled-components";
+import Footer from "../footer";
 
-interface BackgroundProps {
-  children: ReactNode;
-}
+interface BackgroundProps {}
 
-function Background({ children }: BackgroundProps) {
+function Background({}: BackgroundProps) {
   const rowCnt = 63;
   const colCnt = 75;
 
@@ -25,7 +24,6 @@ function Background({ children }: BackgroundProps) {
             <ColLine />
           ))}
       </ColLineWrapper>
-      <ContentWrapper>{children}</ContentWrapper>
     </TotalWrapper>
   );
 }
@@ -33,27 +31,20 @@ function Background({ children }: BackgroundProps) {
 export default Background;
 
 const TotalWrapper = styled.div`
-  max-width: 100%;
   min-width: 1420px;
-  height: 5080px;
-  position: relative;
+  width: 100%;
+  height: 5000px;
+  position: absolute;
+  overflow: hidden;
   top: 0px;
   background-color: ${({ theme }) => theme.colors.background.default};
-  overflow: hidden;
-`;
-
-const ContentWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 2;
 `;
 
 const RowLineWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 5000px;
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   top: 0;
   left: 0;
   display: flex;
@@ -70,7 +61,7 @@ const RowLine = styled.div`
 
 const ColLineWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 5000px;
   position: absolute;
   z-index: 0;
   top: 0;

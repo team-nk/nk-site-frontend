@@ -46,7 +46,8 @@ const TotalWrapper = styled.div`
   width: 100%;
   height: 260px;
   margin-top: -260px;
-  position: sticky;
+  position: absolute;
+  top: 5000px;
   z-index: 999;
   background-color: rgba(3, 1, 17, 0.8);
   display: flex;
@@ -55,7 +56,6 @@ const TotalWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;

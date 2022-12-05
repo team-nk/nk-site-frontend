@@ -3,7 +3,7 @@ import { Img_Main } from "../../assets/images";
 
 function TitleEN() {
   return (
-    <TotalWrapper>
+    <TotalWrapper id="page-2">
       <img src={Img_Main.bannerAni2} alt="" />
       <ContentWrapper>
         <div />
@@ -22,6 +22,9 @@ function TitleEN() {
 export default TitleEN;
 
 const TotalWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+  scroll-snap-align: center;
   width: 100%;
   height: 1000px;
   background-color: ${({ theme }) => theme.colors.background.dark};

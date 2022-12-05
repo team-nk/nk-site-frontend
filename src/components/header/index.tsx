@@ -57,11 +57,10 @@ function LinkTo({ name, onClick, selected }: LinkProps) {
 }
 
 const TotalWrapper = styled.div`
-  margin-bottom: -80px;
-  position: sticky;
+  position: fixed;
   top: 0;
-  max-width: 100%;
-  min-width: 1420px;
+  left: 0px;
+  width: 100%;
   height: 82px;
   display: flex;
   flex-direction: column;

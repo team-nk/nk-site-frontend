@@ -4,7 +4,7 @@ import StatusButton from "../objects/statusbutton";
 
 function TitleKR() {
   return (
-    <TotalWrapper>
+    <TotalWrapper id="page-1">
       <ContentWrapper>
         <div id="text-wrapper">
           <StatusButton value="지금은 모집 중이 아니에요 zzZ" />
@@ -24,6 +24,10 @@ function TitleKR() {
 export default TitleKR;
 
 const TotalWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   width: 100%;
   height: 1000px;
   background-color: ${({ theme }) => theme.colors.background.dark};

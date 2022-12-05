@@ -3,7 +3,7 @@ import { Img_Main } from "../../assets/images";
 
 function Apply() {
   return (
-    <TotalWrapper>
+    <TotalWrapper id="page-4">
       <ContentWrapper>
         <h1>NK에서 다양한 경험을 함께 해봐요!</h1>
         <ButtonBox>
@@ -21,6 +21,9 @@ function Apply() {
 export default Apply;
 
 const TotalWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+  scroll-snap-align: center;
   width: 100%;
   height: 1000px;
   display: flex;
