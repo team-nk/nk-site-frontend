@@ -9,6 +9,7 @@ import Apply from "./components/main/apply";
 import More from "./components/main/more";
 import Footer from "./components/footer";
 import MainPage from "./components/main";
+import ToTop from "./components/objects/totop";
 
 function MainRouter() {
   return (
@@ -27,6 +28,7 @@ function MainRouter() {
               }
             />
           </Routes>
+          <ToTop />
         </Wrapper>
         <Footer />
       </BrowserRouter>

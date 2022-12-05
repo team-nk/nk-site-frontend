@@ -48,7 +48,7 @@ const TotalWrapper = styled.div`
   margin-top: -260px;
   position: absolute;
   top: 5000px;
-  z-index: 999;
+  z-index: 900;
   background-color: rgba(3, 1, 17, 0.8);
   display: flex;
   align-items: center;

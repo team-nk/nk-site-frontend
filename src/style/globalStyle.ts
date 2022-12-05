@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
         scroll-behavior: smooth;
     }    
     html{
-        overflow:hidden;
+        overflow-x:hidden;
         overflow-y:scroll;
         scroll-snap-type:y mandatory;
         scroll-snap-stop: always;
