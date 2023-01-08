@@ -10,6 +10,7 @@ import More from "./components/main/more";
 import Footer from "./components/footer";
 import MainPage from "./components/main";
 import ToTop from "./components/objects/totop";
+import NewApply from "./components/apply/index";
 
 function MainRouter() {
   return (
@@ -27,6 +28,7 @@ function MainRouter() {
                 </>
               }
             />
+            <Route path="/apply" element={<NewApply />} />
           </Routes>
           <ToTop />
         </Wrapper>
