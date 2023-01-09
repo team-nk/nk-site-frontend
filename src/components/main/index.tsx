@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Background from "../background";
+import Background from "../background/main";
 import Apply from "./apply";
 import Count from "./count";
 import More from "./more";

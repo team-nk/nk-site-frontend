@@ -1,51 +1,39 @@
 import { ReactNode, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../footer";
 
-interface BackgroundProps {
-  children: ReactNode;
-}
+interface BackgroundProps {}
 
-function Background({ children }: BackgroundProps) {
+function BackgroundMain({}: BackgroundProps) {
   const rowCnt = 63;
   const colCnt = 75;
-  const locate = useLocation();
 
   return (
-    <>
-      {locate.pathname != "/" ? (
-        <TotalWrapper>
-          <RowLineWrapper>
-            {Array(rowCnt)
-              .fill(0)
-              .map(() => (
-                <RowLine />
-              ))}
-          </RowLineWrapper>
-          <ColLineWrapper>
-            {Array(colCnt)
-              .fill(0)
-              .map(() => (
-                <ColLine />
-              ))}
-          </ColLineWrapper>
-          {children}
-        </TotalWrapper>
-      ) : (
-        <>{children}</>
-      )}
-    </>
+    <TotalWrapper>
+      <RowLineWrapper>
+        {Array(rowCnt)
+          .fill(0)
+          .map(() => (
+            <RowLine />
+          ))}
+      </RowLineWrapper>
+      <ColLineWrapper>
+        {Array(colCnt)
+          .fill(0)
+          .map(() => (
+            <ColLine />
+          ))}
+      </ColLineWrapper>
+    </TotalWrapper>
   );
 }
 
-export default Background;
+export default BackgroundMain;
 
 const TotalWrapper = styled.div`
   min-width: 1420px;
   width: 100%;
-  min-height: 100vh;
-  height: fit-content;
+  height: 5000px;
   position: absolute;
   overflow: hidden;
   top: 0px;
