@@ -5,7 +5,7 @@ function NewApply() {
   const navigate = useNavigate();
 
   const onClickStart = () => {
-    navigate("/apply-1");
+    navigate("/apply/position");
   };
 
   return (
@@ -28,12 +28,15 @@ function NewApply() {
 export default NewApply;
 
 const TotalWrapper = styled.div`
-  position: relative;
-  z-index: 1;
+  width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding-top: 60px;
+  padding-bottom: 260px;
+  position: relative;
+  z-index: 1;
 `;
 
 const TextContainer = styled.div`
@@ -71,8 +74,10 @@ const ButtonContainer = styled.div`
 `;
 
 const AnimationContainer = styled.button`
+  position: relative;
   display: flex;
   justify-content: center;
+  margin-bottom: 390px;
   align-items: center;
   cursor: pointer;
   outline: none;
