@@ -36,7 +36,7 @@ const TotalWrapper = styled.button`
     position: absolute;
     transition: 0.3s;
     top: 19px;
-    left: 21px;
+    left: 20px;
   }
   :hover {
     opacity: 1;
@@ -44,7 +44,6 @@ const TotalWrapper = styled.button`
       transition: 0.3s;
       position: absolute;
       top: 15px;
-      left: 21px;
     }
   }
   :active {
@@ -54,7 +53,6 @@ const TotalWrapper = styled.button`
       transition: 0.3s;
       position: absolute;
       top: 23px;
-      left: 21px;
     }
   }
 `;
