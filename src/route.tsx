@@ -10,6 +10,8 @@ import More from "./components/main/more";
 import Footer from "./components/footer";
 import MainPage from "./components/main";
 import ToTop from "./components/objects/totop";
+import NewApply from "./components/apply/index";
+import ApplyPosition from "./components/apply/ApplyPosition";
 import Background from "./components/background";
 import TeamPage from "./components/team";
 import ProjectPage from "./components/project";
@@ -20,6 +22,21 @@ function MainRouter() {
     <>
       <BrowserRouter>
         <Wrapper>
+          <Header />
+          <Background />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <MainPage />
+                </>
+              }
+            />
+            <Route path="/apply" element={<NewApply />} />
+            <Route path="/apply-1" element={<ApplyPosition />} />
+          </Routes>
+          <ToTop />
           <Background>
             <Header />
             <Routes>

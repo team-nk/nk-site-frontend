@@ -1,6 +1,13 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 function NewApply() {
+  const navigate = useNavigate();
+
+  const onClickStart = () => {
+    navigate("/apply-1");
+  };
+
   return (
     <TotalWrapper>
       <TextContainer>
@@ -8,7 +15,7 @@ function NewApply() {
         <p>NK에서 다양한 경험을 해봐요</p>
       </TextContainer>
       <ButtonContainer>
-        <AnimationContainer>
+        <AnimationContainer onClick={onClickStart}>
           <p>NK 2기 지원하기</p>
           <SlideBox id="slide" />
         </AnimationContainer>
