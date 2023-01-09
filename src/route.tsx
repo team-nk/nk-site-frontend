@@ -5,12 +5,11 @@ import TitleKR from "./components/main/titleKR";
 import styled from "styled-components";
 import TitleEN from "./components/main/titleEN";
 import Count from "./components/main/count";
-import Apply from "./components/main/apply";
 import More from "./components/main/more";
 import Footer from "./components/footer";
 import MainPage from "./components/main";
 import ToTop from "./components/objects/totop";
-import NewApply from "./components/apply/index";
+import Apply from "./components/apply/index";
 import ApplyPosition from "./components/apply/ApplyPosition";
 import Background from "./components/background";
 import TeamPage from "./components/team";
@@ -22,21 +21,6 @@ function MainRouter() {
     <>
       <BrowserRouter>
         <Wrapper>
-          <Header />
-          <Background />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <MainPage />
-                </>
-              }
-            />
-            <Route path="/apply" element={<NewApply />} />
-            <Route path="/apply-1" element={<ApplyPosition />} />
-          </Routes>
-          <ToTop />
           <Background>
             <Header />
             <Routes>
@@ -49,30 +33,11 @@ function MainRouter() {
                   </>
                 }
               />
-              <Route
-                path="/team"
-                element={
-                  <>
-                    <TeamPage />
-                  </>
-                }
-              />
-              <Route
-                path="/project"
-                element={
-                  <>
-                    <ProjectPage />
-                  </>
-                }
-              />
-              <Route
-                path="/faq"
-                element={
-                  <>
-                    <FAQPage />
-                  </>
-                }
-              />
+              <Route path="/team" element={<TeamPage />} />
+              <Route path="/project" element={<ProjectPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/apply" element={<Apply />} />
+              <Route path="/apply/position" element={<ApplyPosition />} />
             </Routes>
             <ToTop />
             <Footer />
