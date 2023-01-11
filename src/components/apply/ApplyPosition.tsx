@@ -1,7 +1,58 @@
 import { useState } from "react";
 import styled from "styled-components";
+import NormalButton from "../common/button/NormalButton";
+
+interface SelectProps {
+  checkState: boolean;
+  onClick: () => void;
+  positionText: string;
+}
+
+interface BtnProps {
+  check: boolean;
+  cur: number;
+  focusBtn: boolean;
+  disabled: boolean;
+}
 
 function ApplyPosition() {
+  const [btnState, setBtnState] = useState<BtnProps>({
+    check: false,
+    cur: 0,
+    focusBtn: false,
+    disabled: true,
+  });
+
+  const PositionDermy = [
+    {
+      name: "기획·PM",
+    },
+    {
+      name: "디자이너",
+    },
+    {
+      name: "프론트엔드 개발자",
+    },
+    {
+      name: "백엔드 개발자",
+    },
+    {
+      name: "Android 개발자",
+    },
+    {
+      name: "iOS 개발자",
+    },
+  ];
+
+  const onClickSelectItem = (num: number) => {
+    setBtnState({
+      check: !btnState.check,
+      cur: num,
+      focusBtn: true,
+      disabled: false,
+    });
+  };
+
   return (
     <TotalWrapper>
       <TextContainer>
@@ -11,23 +62,36 @@ function ApplyPosition() {
         <SelectForm>
           <QuestionText>1. 지원하시는 포지션이 무엇인가요?</QuestionText>
           <SelectItemContainer>
-            <SelectItem />
+            {PositionDermy.map((item, idx) => (
+              <SelectItem
+                key={idx}
+                positionText={item.name}
+                onClick={() => onClickSelectItem((idx + 1) * 6)}
+                checkState={(idx + 1) * 6 === btnState.cur}
+              />
+            ))}
           </SelectItemContainer>
         </SelectForm>
       </SelectContainer>
+      <ButtonContainer>
+        <NormalButton value="이전" />
+        <NormalButton
+          disabled={btnState.disabled}
+          focus={btnState.focusBtn}
+          value="다음(1/3)"
+        />
+      </ButtonContainer>
     </TotalWrapper>
   );
 }
 
 export default ApplyPosition;
 
-function SelectItem() {
+function SelectItem({ positionText, checkState, onClick }: SelectProps) {
   return (
-    <SelectWrapper>
-      <SelectCircle>
-        <CheckSelectCircle />
-      </SelectCircle>
-      <CategoryText>항목 텍스트</CategoryText>
+    <SelectWrapper onClick={onClick} check={checkState}>
+      <SelectCircle>{checkState && <CheckSelectCircle />}</SelectCircle>
+      <CategoryText>{positionText}</CategoryText>
     </SelectWrapper>
   );
 }
@@ -74,18 +138,21 @@ const QuestionText = styled.p`
 
 const SelectItemContainer = styled.div``;
 
-const SelectWrapper = styled.div`
+const SelectWrapper = styled.div<{ check: boolean }>`
   width: 900px;
   height: 50px;
   display: flex;
   border-radius: 8px;
   padding: 16px 19px;
 
+  background-color: ${({ check, theme }) =>
+    check ? "rgba(27, 241, 255, 0.2)" : theme.colors.background.dark};
+
   :hover {
-    background-color: ${({ theme }) => theme.colors.main.default};
+    background-color: ${({ check }) => !check && "rgba(204, 0, 255, 0.2)"};
 
     > p {
-      text-decoration: underline;
+      text-decoration: ${({ check }) => !check && "underline"};
     }
   }
 `;
@@ -112,4 +179,10 @@ const CheckSelectCircle = styled.div`
 const CategoryText = styled.p`
   ${({ theme }) => theme.fontSizes.nav1}
   color: ${({ theme }) => theme.colors.grayscale.gray20};
+`;
+
+const ButtonContainer = styled.div`
+  z-index: 3;
+  margin-top: 52px;
+  margin-bottom: 156px;
 `;
