@@ -33,7 +33,6 @@ const TotalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px;
   padding-bottom: 260px;
   position: relative;
   z-index: 1;
