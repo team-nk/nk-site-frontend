@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import NormalButton from "../common/button/NormalButton";
 
@@ -44,6 +45,8 @@ function ApplyPosition() {
     },
   ];
 
+  const navigate = useNavigate();
+
   const onClickSelectItem = (num: number) => {
     setBtnState({
       check: !btnState.check,
@@ -51,6 +54,14 @@ function ApplyPosition() {
       focusBtn: true,
       disabled: false,
     });
+  };
+
+  const onClickBefore = () => {
+    navigate("/apply");
+  };
+
+  const onClickNext = () => {
+    navigate("/apply/profile");
   };
 
   return (
@@ -74,8 +85,9 @@ function ApplyPosition() {
         </SelectForm>
       </SelectContainer>
       <ButtonContainer>
-        <NormalButton value="이전" />
+        <NormalButton onClick={onClickBefore} value="이전" />
         <NormalButton
+          onClick={onClickNext}
           disabled={btnState.disabled}
           focus={btnState.focusBtn}
           value="다음(1/3)"
@@ -185,4 +197,7 @@ const ButtonContainer = styled.div`
   z-index: 3;
   margin-top: 52px;
   margin-bottom: 156px;
+  width: 940px;
+  display: flex;
+  justify-content: space-between;
 `;
