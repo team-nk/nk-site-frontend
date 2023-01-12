@@ -3,6 +3,7 @@ import NormalButton from "../common/button/NormalButton";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import AnswerInput from "../common/question/AnswerInput";
+import DropDown from "../common/dropdown";
 
 interface BtnProps {
   focusBtn: boolean;
@@ -54,6 +55,7 @@ function ApplyProfile() {
         />
         <QuestionDropdownContainer>
           <h1>6. 교내 학년을 선택해주세요.</h1>
+          <DropDown />
         </QuestionDropdownContainer>
         <AnswerInput
           className="master"
