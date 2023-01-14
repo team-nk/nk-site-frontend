@@ -119,6 +119,7 @@ const QuestionDropdownContainer = styled.div`
   > h1 {
     color: ${({ theme }) => theme.colors.grayscale.gray20};
     ${({ theme }) => theme.fontSizes.subTitle}
+    margin-bottom: 8px;
   }
 `;
 
