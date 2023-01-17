@@ -4,13 +4,21 @@ import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import AnswerInput from "../common/question/AnswerInput";
 import DropDown from "../common/dropdown";
+import { OptionArrType } from "../../interface/common";
 
 interface BtnProps {
   focusBtn: boolean;
   disabled: boolean;
 }
 
+const DropDownOption: OptionArrType[] = [
+  { option: 1, value: "1" },
+  { option: 2, value: "2" },
+  { option: 3, value: "3" },
+];
+
 function ApplyProfile() {
+  const [sort, setSort] = useState(DropDownOption[0].value);
   const [btnState, setBtnState] = useState<BtnProps>({
     focusBtn: false,
     disabled: true,
@@ -24,6 +32,11 @@ function ApplyProfile() {
 
   const onClickNext = () => {
     navigate("/apply/motive");
+  };
+
+  const onChangeSort = (sort: string) => {
+    const sortValue = sort;
+    setSort(sortValue);
   };
 
   return (
@@ -55,7 +68,11 @@ function ApplyProfile() {
         />
         <QuestionDropdownContainer>
           <h1>6. 교내 학년을 선택해주세요.</h1>
-          <DropDown />
+          <DropDown
+            onChangeValue={onChangeSort}
+            value={sort}
+            options={DropDownOption}
+          />
         </QuestionDropdownContainer>
         <AnswerInput
           className="master"
