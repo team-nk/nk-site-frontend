@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import NormalButton from "../common/button/NormalButton";
+import { applyInfoState } from "../../store/atom";
 
 interface SelectProps {
   checkState: boolean;
@@ -17,6 +19,7 @@ interface BtnProps {
 }
 
 function ApplyPosition() {
+  const [applyState, setApplyState] = useRecoilState(applyInfoState);
   const [btnState, setBtnState] = useState<BtnProps>({
     check: false,
     cur: 0,
@@ -47,13 +50,14 @@ function ApplyPosition() {
 
   const navigate = useNavigate();
 
-  const onClickSelectItem = (num: number) => {
+  const onClickSelectItem = (num: number, positionName: string) => {
     setBtnState({
       check: !btnState.check,
       cur: num,
       focusBtn: true,
       disabled: false,
     });
+    setApplyState({ ...applyState, position: positionName });
   };
 
   const onClickBefore = () => {
@@ -77,7 +81,7 @@ function ApplyPosition() {
               <SelectItem
                 key={idx}
                 positionText={item.name}
-                onClick={() => onClickSelectItem((idx + 1) * 6)}
+                onClick={() => onClickSelectItem((idx + 1) * 6, item.name)}
                 checkState={(idx + 1) * 6 === btnState.cur}
               />
             ))}

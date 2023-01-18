@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import NormalButton from "../common/button/NormalButton";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import AnswerInput from "../common/question/AnswerInput";
 import DropDown from "../common/dropdown";
 import { OptionArrType } from "../../interface/common";
+import { useRecoilState } from "recoil";
+import { applyInfoState } from "../../store/atom";
 
 interface BtnProps {
   focusBtn: boolean;
@@ -18,7 +20,9 @@ const DropDownOption: OptionArrType[] = [
 ];
 
 function ApplyProfile() {
+  const [applyState, setApplyState] = useRecoilState(applyInfoState);
   const [sort, setSort] = useState(DropDownOption[0].value);
+  const [valueState, setValueState] = useState<boolean>(false);
   const [btnState, setBtnState] = useState<BtnProps>({
     focusBtn: false,
     disabled: true,
@@ -37,6 +41,25 @@ function ApplyProfile() {
   const onChangeSort = (sort: string) => {
     const sortValue = sort;
     setSort(sortValue);
+    setApplyState({ ...applyState, grade: sort });
+    console.log(applyState.grade);
+  };
+
+  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+    setApplyState({ ...applyState, [name]: value });
+    if (
+      applyState.name === "" ||
+      applyState.email === "" ||
+      applyState.phone === "" ||
+      applyState.school === "" ||
+      applyState.grade === "" ||
+      applyState.major === ""
+    ) {
+      setBtnState({ ...btnState, disabled: true });
+    } else {
+      setBtnState({ ...btnState, disabled: false });
+    }
   };
 
   return (
@@ -46,23 +69,31 @@ function ApplyProfile() {
       </TextContainer>
       <InputContainer>
         <AnswerInput
-          className="name"
+          value={applyState.name}
+          onChange={onChangeInput}
+          name="name"
           title="2. 지원자 분의 성함을 알려주세요."
           placeholder="2~4자"
           maxLength={4}
         />
         <AnswerInput
-          className="e-mail"
+          value={applyState.email}
+          onChange={onChangeInput}
+          name="email"
           title="3. 이메일을 입력해주세요."
           placeholder="예: Necessary123@geeK.com"
         />
         <AnswerInput
-          className="phone"
+          value={applyState.phone}
+          onChange={onChangeInput}
+          name="phone"
           title="4. 연락처를 입력해주세요."
           placeholder="000-0000-0000"
         />
         <AnswerInput
-          className="school"
+          value={applyState.school}
+          onChange={onChangeInput}
+          name="school"
           title="5. 어느 학교에 재학 중이신가요?"
           placeholder="ㅇㅇ고등학교"
         />
@@ -75,7 +106,9 @@ function ApplyProfile() {
           />
         </QuestionDropdownContainer>
         <AnswerInput
-          className="master"
+          value={applyState.major}
+          onChange={onChangeInput}
+          name="major"
           title="7. 전공이 무엇이신가요?"
           placeholder="ㅇㅇ과"
         />
