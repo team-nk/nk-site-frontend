@@ -22,7 +22,6 @@ const DropDownOption: OptionArrType[] = [
 function ApplyProfile() {
   const [applyState, setApplyState] = useRecoilState(applyInfoState);
   const [sort, setSort] = useState(DropDownOption[0].value);
-  const [valueState, setValueState] = useState<boolean>(false);
   const [btnState, setBtnState] = useState<BtnProps>({
     focusBtn: false,
     disabled: true,

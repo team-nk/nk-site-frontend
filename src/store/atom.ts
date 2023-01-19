@@ -12,7 +12,7 @@ export const applyInfoState = atom({
     major: "",
     reasonApplyNK: "",
     togetherProject: "",
-    Participating: "",
+    participating: "",
     skill: "",
     portfolio: "",
   },
