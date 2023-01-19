@@ -17,6 +17,7 @@ import ProjectPage from "./components/project";
 import FAQPage from "./components/faq";
 import ApplyProfile from "./components/apply/ApplyProfile";
 import ApplyMotive from "./components/apply/ApplyMotive";
+import ApplyLast from "./components/apply/ApplyLast";
 
 function MainRouter() {
   return (
@@ -42,6 +43,7 @@ function MainRouter() {
               <Route path="/apply/position" element={<ApplyPosition />} />
               <Route path="/apply/profile" element={<ApplyProfile />} />
               <Route path="/apply/motive" element={<ApplyMotive />} />
+              <Route path="/apply/last" element={<ApplyLast />} />
             </Routes>
             <ToTop />
             <Footer />
