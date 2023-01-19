@@ -6,7 +6,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
 }
 
-function AnswerInput({ width, title, type = "text", ...props }: Props) {
+function AnswerInput({ title, type = "text", ...props }: Props) {
   return (
     <Wrapper>
       <QuestionText>{title}</QuestionText>
@@ -27,8 +27,8 @@ const QuestionText = styled.h1`
   ${({ theme }) => theme.fontSizes.subTitle}
 `;
 
-const AnswerInputText = styled.input`
-  width: 420px;
+const AnswerInputText = styled.input<{ width?: number }>`
+  width: ${({ width }) => (width ? `${width}px` : `420px`)};
   height: 56px;
   padding: 16px 20px;
   box-sizing: border-box;
